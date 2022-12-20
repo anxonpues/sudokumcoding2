@@ -147,7 +147,7 @@ std::array <char, 81> const getflat_board(std::string tira);
 int main(){
 
     // mejor poner una funcion de entrada de valores
-    std::array<char, 81> const flat_board = { '6', '.', '.', '.', '4', '5', '2', '.', '.',
+    /*std::array<char, 81> const flat_board = { '6', '.', '.', '.', '4', '5', '2', '.', '.',
                                               '.', '9', '.', '.', '2', '.', '3', '.', '7',
                                               '.', '.', '.', '.', '6', '.', '.', '8', '.',
                                               '.', '3', '.', '4', '.', '.', '8', '.', '.',
@@ -155,7 +155,7 @@ int main(){
                                               '.', '.', '7', '.', '.', '3', '.', '4', '.',
                                               '.', '5', '.', '.', '3', '.', '.', '.', '.',
                                               '8', '.', '6', '.', '5', '.', '.', '3', '.',
-                                              '.', '.', '9', '8', '1', '.', '.', '.', '4' };
+                                              '.', '.', '9', '8', '1', '.', '.', '.', '4' };*/
     /*
     std::array<char, 81> const flat_expected = { '5', '3', '4', '6', '7', '8', '9', '1', '2',
                                                  '6', '7', '2', '1', '9', '5', '3', '4', '8',
@@ -167,6 +167,8 @@ int main(){
                                                  '2', '8', '7', '4', '1', '9', '6', '3', '5',
                                                  '3', '4', '5', '2', '8', '6', '1', '7', '9' };
                                                  */
+    std::string tira;
+    std::array<char, 81> const flat_board = getflat_board(tira);
     std::vector<std::vector<char>> board = flat_board_to_vec_vec(flat_board);
     
     // std::vector<std::vector<char>> const expected = flat_board_to_vec_vec(flat_expected);
@@ -188,4 +190,20 @@ int main(){
     std::cin.get();
     std::cin.get();
     return 0;
+}
+
+std::array <char, 81> const getflat_board(std::string tira)
+{
+    std::array <char, 81> salida;
+    std::cout << "\n\n Enter a sequence of 81 numbers or dots . " << std::endl;
+    std::cin >> tira;
+    if (tira.length() != 81)
+    {
+        std::cout << "\n\n Don't touch my balls   don't lie me!";
+        std::cout << "\n\n Enter a sequence of 81 numbers or dots . " << std::endl;
+        std::cin >> tira;
+    }
+    for (std::size_t i = 0; i < 81; i++)
+        salida[i] = tira.at(i);
+    return salida;
 }
